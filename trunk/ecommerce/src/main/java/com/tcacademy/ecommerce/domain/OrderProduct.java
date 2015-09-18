@@ -6,8 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -20,11 +20,11 @@ public class OrderProduct implements Serializable {
   private Id id = new Id();
 
   @ManyToOne
-  @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-  private User user;
+  @MapsId("orderId")
+  private Order order;
 
   @ManyToOne
-  @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+  @MapsId("productId")
   private Product product;
 
   @Embeddable
@@ -32,8 +32,8 @@ public class OrderProduct implements Serializable {
 
     private static final long serialVersionUID = 226636815858337409L;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "order_id")
+    private Long orderId;
 
     @Column(name = "product_id")
     private Long productId;
