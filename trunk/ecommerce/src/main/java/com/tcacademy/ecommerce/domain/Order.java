@@ -36,9 +36,9 @@ public class Order implements Serializable {
 
   @Column(name = "order_price")
   private Double orderPrice;
-  
-  @OneToMany(mappedBy = "gameCategory", cascade = CascadeType.ALL, orphanRemoval = true)
-  private Set<OrderProduct> followGameCategories = new HashSet<OrderProduct>();
+
+  @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<OrderProduct> orderProducts = new HashSet<OrderProduct>();
 
 
 }
