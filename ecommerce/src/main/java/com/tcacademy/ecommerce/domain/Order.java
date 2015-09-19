@@ -22,7 +22,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_order")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Order extends AbstractEnitty<Long> {
+public class Order extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = 3055545243080304581L;
 

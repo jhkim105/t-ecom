@@ -27,7 +27,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "t_user")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class User extends AbstractEnitty<Long> implements UserDetails {
+public class User extends AbstractEntity<Long> implements UserDetails {
 
   private static final long serialVersionUID = -4427406588176074887L;
 

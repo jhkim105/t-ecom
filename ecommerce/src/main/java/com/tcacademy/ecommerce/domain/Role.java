@@ -15,7 +15,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Table(name = "t_role")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Role extends AbstractEnitty<Long> implements GrantedAuthority {
+public class Role extends AbstractEntity<Long> implements GrantedAuthority {
 
   private static final long serialVersionUID = 5803434725021745049L;
 

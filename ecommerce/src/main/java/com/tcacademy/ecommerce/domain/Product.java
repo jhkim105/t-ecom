@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import org.springframework.boot.orm.jpa.EntityScan;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,7 +16,8 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_product")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Product extends AbstractEnitty<Long> {
+@EntityScan
+public class Product extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = 7568237900551155743L;
 
