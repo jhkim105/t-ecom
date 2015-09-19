@@ -3,7 +3,7 @@ package com.tacademy.ecommerce.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.tcacademy.ecommerce.domain.Product;
+import com.tacademy.ecommerce.domain.Product;
 
 public interface ProductManager {
 

@@ -1,4 +1,4 @@
-package com.tcacademy.ecommerce.domain;
+package com.tacademy.ecommerce.domain;
 
 import java.util.HashSet;
 import java.util.Set;

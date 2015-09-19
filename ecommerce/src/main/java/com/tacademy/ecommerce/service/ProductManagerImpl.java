@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.tacademy.ecommerce.domain.Product;
 import com.tacademy.ecommerce.repository.ProductRepository;
-import com.tcacademy.ecommerce.domain.Product;
 
 @Service
 public class ProductManagerImpl implements ProductManager {
