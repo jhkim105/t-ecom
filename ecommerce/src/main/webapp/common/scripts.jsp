@@ -3,6 +3,4 @@
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/metisMenu.min.js"></script>
 <script src="/resources/js/raphael-min.js"></script>
-<script src="/resources/js/morris.min.js"></script>
-<script src="/resources/js/morris-data.js"></script>
 <script src="/resources/js/sb-admin-2.js"></script>

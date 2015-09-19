@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -36,5 +38,10 @@ public class Product extends AbstractEntity<Long> {
 
   @Lob
   private String description;
+
+  @JsonProperty("imageUrl")
+  public String getImageUrl() {
+    return "";
+  }
 
 }
