@@ -14,31 +14,32 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "t_order_product")
+@Table(name = "t_cart_product")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class OrderProduct extends AbstractEnitty<OrderProduct.Id> {
+public class CartProduct extends AbstractEnitty<CartProduct.Id> {
 
-  private static final long serialVersionUID = 8179212195644166901L;
+  private static final long serialVersionUID = -4141906823920871722L;
 
   @EmbeddedId
   private Id id = new Id();
 
   @ManyToOne
-  @MapsId("orderId")
-  private Order order;
+  @MapsId("cartId")
+  private Cart cart;
 
   @ManyToOne
   @MapsId("productId")
   private Product product;
 
+  @Data
   @Embeddable
   public static class Id implements Serializable {
 
-    private static final long serialVersionUID = 226636815858337409L;
+    private static final long serialVersionUID = 340765999204142798L;
 
-    @Column(name = "order_id")
-    private Long orderId;
+    @Column(name = "cart_id")
+    private Long cartId;
 
     @Column(name = "product_id")
     private Long productId;
