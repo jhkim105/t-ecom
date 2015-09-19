@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
 
-import com.tcacademy.ecommerce.domain.AbstractEntity;
+import com.tacademy.ecommerce.domain.AbstractEntity;
 
 @SpringBootApplication
 @EntityScan(basePackageClasses = AbstractEntity.class)

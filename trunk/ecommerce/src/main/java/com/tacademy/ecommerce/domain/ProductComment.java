@@ -1,4 +1,4 @@
-package com.tcacademy.ecommerce.domain;
+package com.tacademy.ecommerce.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

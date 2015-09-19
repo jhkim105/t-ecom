@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tacademy.ecommerce.common.ResponseVO;
+import com.tacademy.ecommerce.domain.Product;
 import com.tacademy.ecommerce.service.ProductManager;
-import com.tcacademy.ecommerce.domain.Product;
 
 @Controller
 @RequestMapping("/product")
