@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_cart")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Cart extends AbstractEnitty<Long> {
+public class Cart extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = 7568237900551155743L;
 

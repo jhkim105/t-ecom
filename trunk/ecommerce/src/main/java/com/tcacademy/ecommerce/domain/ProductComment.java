@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "t_product_comment")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ProductComment extends AbstractEnitty<Long> {
+public class ProductComment extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = -5263974104854877073L;
 

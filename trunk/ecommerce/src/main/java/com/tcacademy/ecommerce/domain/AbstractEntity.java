@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @MappedSuperclass()
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonInclude(value = Include.ALWAYS)
-public abstract class AbstractEnitty<K extends Serializable> implements Serializable {
+public abstract class AbstractEntity<K extends Serializable> implements Serializable {
 
   private static final long serialVersionUID = 9031863801937440461L;
 
