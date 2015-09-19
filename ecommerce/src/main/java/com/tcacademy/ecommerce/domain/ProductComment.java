@@ -1,38 +1,34 @@
 package com.tcacademy.ecommerce.domain;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "t_product")
-public class ProductComment implements Serializable {
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-  private static final long serialVersionUID = 7568237900551155743L;
+@Entity
+@Table(name = "t_product_comment")
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class ProductComment extends AbstractEnitty<Long> {
+
+  private static final long serialVersionUID = -5263974104854877073L;
 
   @Id
   @GeneratedValue
   private Long id;
 
-  @Column(length = 30)
-  private String name;
+  @ManyToOne
+  private Product product;
 
-  @Column
-  private Double price;
-
-  @Column(name = "image_file_name", length = 100)
-  private String imageFileName;
-
-  @Column(length = 10)
-  private String color;
+  @ManyToOne
+  private User user;
 
   @Lob
-  private String description;
-
+  private String comment;
 
 }
