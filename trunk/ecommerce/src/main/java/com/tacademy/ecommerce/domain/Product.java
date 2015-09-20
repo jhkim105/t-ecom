@@ -9,7 +9,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tacademy.ecommerce.config.SystemPropertiesConfig;
@@ -17,7 +16,6 @@ import com.tacademy.ecommerce.config.SystemPropertiesConfig;
 @Entity
 @Table(name = "t_product")
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class Product extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = 7568237900551155743L;

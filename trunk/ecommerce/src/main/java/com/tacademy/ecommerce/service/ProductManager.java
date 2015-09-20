@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.tacademy.ecommerce.domain.Product;
+import com.tacademy.ecommerce.domain.User;
 
 public interface ProductManager {
 
@@ -14,5 +15,7 @@ public interface ProductManager {
   Product save(Product product);
 
   void delete(Long id);
+
+  void addComment(User user, Long id, String comment);
 
 }
