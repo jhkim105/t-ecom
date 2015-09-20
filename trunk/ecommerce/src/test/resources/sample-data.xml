@@ -108,4 +108,105 @@
          <value description="comment">노굿</value>
     </row>
 </table>
+<table name="t_order">
+    <column>id</column>
+    <column>user_id</column>
+    <column>order_date</column>
+    <column>order_status</column>
+    <column>pay_method</column>
+    <column>order_price</column>
+    <column>recipient_name</column>
+    <column>recipient_tel</column>
+    <column>delivery_address</column>
+    <row>
+         <value description="id">1</value>
+         <value description="user_id">1</value>
+         <value description="order_date">2015-01-01 12:00:00</value>
+         <value description="order_status">ORDERED</value>
+         <value description="pay_method">CARD</value>
+         <value description="order_price">100</value>
+         <value description="recipient_name">홍길동</value>
+         <value description="recipient_tel">010-2222-3333</value>
+         <value description="delivery_address">송파구 오금동</value>
+    </row>
+    <row>
+         <value description="id">2</value>
+         <value description="user_id">1</value>
+         <value description="order_date">2015-01-02 12:00:01</value>
+         <value description="order_status">ORDERED</value>
+         <value description="pay_method">CARD</value>
+         <value description="order_price">200</value>
+         <value description="recipient_name">임꺽정</value>
+         <value description="recipient_tel">010-2222-3334</value>
+         <value description="delivery_address">송파구 잠실동</value>
+    </row>
+    <row>
+         <value description="id">3</value>
+         <value description="user_id">1</value>
+         <value description="order_date">2015-01-03 12:00:02</value>
+         <value description="order_status">DELIVERY</value>
+         <value description="pay_method">CARD</value>
+         <value description="order_price">300</value>
+         <value description="recipient_name">현빈</value>
+         <value description="recipient_tel">010-2222-3335</value>
+         <value description="delivery_address">용인시 기흥구</value>
+    </row>
+    <row>
+         <value description="id">4</value>
+         <value description="user_id">1</value>
+         <value description="order_date">2015-01-04 12:00:03</value>
+         <value description="order_status">COMPLETE</value>
+         <value description="pay_method">CASH</value>
+         <value description="order_price">400</value>
+         <value description="recipient_name">정우성</value>
+         <value description="recipient_tel">010-2222-3336</value>
+         <value description="delivery_address">용인시 수지구</value>
+    </row>
+    <row>
+         <value description="id">5</value>
+         <value description="user_id">1</value>
+         <value description="order_date">2015-01-05 12:00:04</value>
+         <value description="order_status">CANCELED</value>
+         <value description="pay_method">CASH</value>
+         <value description="order_price">500</value>
+         <value description="recipient_name">김태희</value>
+         <value description="recipient_tel">010-2222-3337</value>
+         <value description="delivery_address">성남시 분당구</value>
+    </row>
+</table>
+<table name="t_order_product">
+    <column>order_id</column>
+    <column>product_id</column>
+    <column>order_count</column>
+    <row>
+         <value description="order_id">1</value>
+         <value description="product_id">1</value>
+         <value description="order_count">10</value>
+    </row>
+    <row>
+         <value description="order_id">1</value>
+         <value description="product_id">2</value>
+         <value description="order_count">12</value>
+    </row>
+    <row>
+         <value description="order_id">2</value>
+         <value description="product_id">1</value>
+         <value description="order_count">100</value>
+    </row>
+    <row>
+         <value description="order_id">3</value>
+         <value description="product_id">2</value>
+         <value description="order_count">12</value>
+    </row>
+    <row>
+         <value description="order_id">4</value>
+         <value description="product_id">3</value>
+         <value description="order_count">200</value>
+    </row>
+    <row>
+         <value description="order_id">5</value>
+         <value description="product_id">3</value>
+         <value description="order_count">300</value>
+    </row>
+</table>
 </dataset>
