@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.context.ServletContextAware;
 
 import com.tacademy.ecommerce.domain.User;
+import com.tacademy.ecommerce.security.LoginUserDetails;
 
 public class BaseController implements ServletContextAware {
 
@@ -38,7 +39,7 @@ public class BaseController implements ServletContextAware {
 
   private static User getCurrentUser(Authentication auth) {
     User currentUser = null;
-    if (auth.getPrincipal() instanceof UserDetails) {
+    if (auth.getPrincipal() instanceof User) {
       currentUser = (User) auth.getPrincipal();
     } else if (auth.getDetails() instanceof UserDetails) {
       currentUser = (User) auth.getDetails();

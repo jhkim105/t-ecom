@@ -18,17 +18,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import org.springframework.security.core.GrantedAuthority;
-
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "t_user")
-@Data
-@EqualsAndHashCode(callSuper = false)
-@ToString(exclude = { "orders" })
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, of = { "id" })
+@ToString(exclude = { "orders", "cart" })
 public class User extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = -4427406588176074887L;

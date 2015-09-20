@@ -32,9 +32,6 @@ public class OrderProduct extends AbstractEntity<OrderProduct.Id> {
   @MapsId("productId")
   private Product product;
 
-  @Column
-  private String comment;
-
   @Embeddable
   public static class Id implements Serializable {
 

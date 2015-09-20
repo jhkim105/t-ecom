@@ -1,21 +1,33 @@
 package com.tacademy.ecommerce.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tacademy.ecommerce.config.SystemPropertiesConfig;
 
 @Entity
 @Table(name = "t_product")
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, of = { "id" })
+@ToString(exclude = { "productComments" })
 public class Product extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = 7568237900551155743L;
@@ -43,6 +55,10 @@ public class Product extends AbstractEntity<Long> {
   @Lob
   @JsonProperty
   private String description;
+
+  @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OrderBy("createdDate desc")
+  private Set<ProductComment> productComments = new HashSet<ProductComment>();
 
   @JsonProperty("imageUrl")
   public String getImageUrl() {
