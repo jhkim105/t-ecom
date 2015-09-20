@@ -10,13 +10,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 @Entity
 @Table(name = "t_order_product")
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, of = { "id" })
+@ToString(exclude = { "order", "product" })
+@NoArgsConstructor
 public class OrderProduct extends AbstractEntity<OrderProduct.Id> {
 
   private static final long serialVersionUID = 8179212195644166901L;
@@ -30,7 +39,20 @@ public class OrderProduct extends AbstractEntity<OrderProduct.Id> {
 
   @ManyToOne
   @MapsId("productId")
+  @JsonProperty
+  @JsonUnwrapped
   private Product product;
+
+  @Column(name = "order_count")
+  @JsonProperty
+  private Integer orderCount;
+
+  public OrderProduct(Order order, Product product) {
+    this.id.orderId = order.getId();
+    this.id.productId = product.getId();
+    this.order = order;
+    this.product = product;
+  }
 
   @Embeddable
   public static class Id implements Serializable {
