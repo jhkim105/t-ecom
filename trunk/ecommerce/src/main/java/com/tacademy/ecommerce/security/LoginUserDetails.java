@@ -1,7 +1,5 @@
 package com.tacademy.ecommerce.security;
 
-import org.springframework.security.core.authority.AuthorityUtils;
-
 import com.tacademy.ecommerce.domain.User;
 
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User{
@@ -9,6 +7,6 @@ public class LoginUserDetails extends org.springframework.security.core.userdeta
 	private static final long serialVersionUID = -3568885757010981354L;
 
 	public LoginUserDetails(User user) {
-		super(user.getUsername(), user.getPassword(), AuthorityUtils.createAuthorityList("USER"));
+		super(user.getUsername(), user.getPassword(), user.getAuthorities());
 	}
 }
