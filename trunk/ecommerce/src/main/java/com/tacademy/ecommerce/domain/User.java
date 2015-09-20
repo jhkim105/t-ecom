@@ -27,7 +27,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "t_user")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class User extends AbstractEntity<Long> implements UserDetails {
+public class User extends AbstractEntity<Long> {
 
   private static final long serialVersionUID = -4427406588176074887L;
 
@@ -60,44 +60,5 @@ public class User extends AbstractEntity<Long> implements UserDetails {
 
   @Column(length = 12)
   private String mobile;
-
-  @Column(name = "account_enabled")
-  private boolean enabled;
-
-  @Column(name = "account_expired")
-  private boolean accountExpired;
-
-  @Column(name = "account_locked")
-  private boolean accountLocked;
-
-  @Column(name = "credentials_expired")
-  private boolean credentialsExpired;
-
-  @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    Set<GrantedAuthority> authorities = new LinkedHashSet<GrantedAuthority>();
-    authorities.add(role);
-    return authorities;
-  }
-
-  @Override
-  public boolean isAccountNonExpired() {
-    return !accountExpired;
-  }
-
-  @Override
-  public boolean isAccountNonLocked() {
-    return !accountLocked;
-  }
-
-  @Override
-  public boolean isCredentialsNonExpired() {
-    return !credentialsExpired;
-  }
-
-  @Override
-  public boolean isEnabled() {
-    return enabled;
-  }
 
 }
