@@ -3,8 +3,6 @@ package com.tacademy.ecommerce.api;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import lombok.extern.apachecommons.CommonsLog;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +21,6 @@ import com.tacademy.ecommerce.service.UserManager;
 import com.tacademy.ecommerce.util.ParameterUtil;
 
 @RestController
-@CommonsLog
 public class UserController {
 
   @Autowired
@@ -31,9 +28,6 @@ public class UserController {
 
   @Autowired
   private PasswordEncoder passwordEncoder;
-
-  @Autowired
-  private HttpServletRequest request;
 
   @RequestMapping(value = "/join", method = RequestMethod.POST)
   public ResponseVO join(User user) {
