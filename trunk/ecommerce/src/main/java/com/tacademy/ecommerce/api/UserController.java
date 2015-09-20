@@ -33,6 +33,7 @@ public class UserController {
   public ResponseVO join(User user) {
     ParameterUtil.checkParameterEmpty(user.getUsername(), user.getPassword(), user.getName());
     checkUsernameDuplicated(user.getUsername());
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     userManager.save(user);
     return ResponseVO.ok();
   }

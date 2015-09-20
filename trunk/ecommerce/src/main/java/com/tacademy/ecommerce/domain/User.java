@@ -62,7 +62,7 @@ public class User extends AbstractEntity<Long> {
   @Column(length = 100)
   private String email;
 
-  @Column(length = 12)
+  @Column(length = 20)
   private String mobile;
 
   public Set<GrantedAuthority> getAuthorities() {
