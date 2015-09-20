@@ -53,7 +53,7 @@ public class User extends AbstractEntity<Long> {
 	@Column(length = 50)
 	private String username;
 
-	@Column(length = 20)
+	@Column(length = 255)
 	private String password;
 
 	@Column(length = 100)

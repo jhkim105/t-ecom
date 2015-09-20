@@ -1,1 +1,0 @@
-insert into user(username, password) values ('user01', '$2a$10$ouU7VJi9oSIDCykxKiV7uuRjvUPcpwZk2TBV2L52DDOIvtSp79fnO');
