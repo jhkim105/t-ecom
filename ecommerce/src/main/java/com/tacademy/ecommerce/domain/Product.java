@@ -24,21 +24,26 @@ public class Product extends AbstractEntity<Long> {
 
   @Id
   @GeneratedValue
+  @JsonProperty
   private Long id;
 
   @Column(length = 30)
+  @JsonProperty
   private String name;
 
   @Column
+  @JsonProperty
   private Double price;
 
   @Column(name = "image_file_name", length = 100)
   private String imageFileName;
 
   @Column(length = 10)
+  @JsonProperty
   private String color;
 
   @Lob
+  @JsonProperty
   private String description;
 
   @JsonProperty("imageUrl")
