@@ -43,14 +43,15 @@ public class ProductController extends BaseController {
   @RequestMapping(value = "/{id}/comment", method = RequestMethod.POST)
   public ResponseVO addComment(@PathVariable Long id, @RequestParam String comment) {
 
-    User currentUser = getCurrentUser();
-    productManager.addComment(currentUser, id, comment);
+    Long userId = getCurrentUser().getId();
+    productManager.addComment(userId, id, comment);
     return ResponseVO.ok();
   }
 
-  @RequestMapping(value = "/{id}/comment/{commendId}/delete", method = RequestMethod.POST)
+  @RequestMapping(value = "/{id}/comment/{commentId}/delete", method = RequestMethod.POST)
   public ResponseVO deleteComment(@PathVariable Long id, @PathVariable Long commentId) {
-
+    Long userId = getCurrentUser().getId();
+    productManager.deleteComment(userId, id, commentId);
     return ResponseVO.ok();
   }
 
