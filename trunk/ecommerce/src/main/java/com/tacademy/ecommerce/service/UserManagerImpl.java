@@ -24,7 +24,8 @@ public class UserManagerImpl implements UserManager {
 
   @Override
   public User findByUsername(String username) {
-    return userRepository.findByUsername(username);
+    User user = userRepository.findByUsername(username);
+    return user;
   }
 
 }

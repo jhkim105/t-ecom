@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+<table name="t_role">
+    <column>id</column>
+    <column>name</column>
+    <row>
+         <value description="id">1</value>
+         <value description="name">ROLE_USER</value>
+    </row>
+    <row>
+         <value description="id">2</value>
+         <value description="name">ROLE_ADMIN</value>
+    </row>
+</table>
 <table name="t_user">
     <column>id</column>
     <column>username</column>
@@ -10,6 +22,18 @@
          <value description="username">user01</value>
          <value description="password">$2a$10$ouU7VJi9oSIDCykxKiV7uuRjvUPcpwZk2TBV2L52DDOIvtSp79fnO</value>
          <value description="name">유저01</value>
+    </row>
+</table>
+<table name="t_user_role">
+    <column>user_id</column>
+    <column>role_id</column>
+    <row>
+         <value description="user_id">1</value>
+         <value description="role_id">1</value>
+    </row>
+    <row>
+         <value description="user_id">1</value>
+         <value description="role_id">2</value>
     </row>
 </table>
 <table name="t_product">
@@ -38,6 +62,50 @@
          <value description="color">BG</value>
          <value description="price">30000</value>
          <value description="description">장인시계설명</value>
+    </row>
+</table>
+<table name="t_cart">
+    <column>id</column>
+    <row>
+         <value description="id">1</value>
+    </row>
+</table>
+<table name="t_cart_product">
+    <column>cart_id</column>
+    <column>product_id</column>
+    <column>buy_count</column>
+    <row>
+         <value description="cart_id">1</value>
+         <value description="product_id">1</value>
+         <value description="buy_count">3</value>
+    </row>
+    <row>
+         <value description="cart_id">1</value>
+         <value description="product_id">2</value>
+         <value description="buy_count">4</value>
+    </row>
+    <row>
+         <value description="cart_id">1</value>
+         <value description="product_id">3</value>
+         <value description="buy_count">10</value>
+    </row>
+</table>
+<table name="t_product_comment">
+    <column>id</column>
+    <column>product_id</column>
+    <column>user_id</column>
+    <column>comment</column>
+    <row>
+         <value description="id">1</value>
+         <value description="product_id">1</value>
+         <value description="user_id">1</value>
+         <value description="comment">굿</value>
+    </row>
+    <row>
+         <value description="id">2</value>
+         <value description="product_id">1</value>
+         <value description="user_id">1</value>
+         <value description="comment">노굿</value>
     </row>
 </table>
 </dataset>

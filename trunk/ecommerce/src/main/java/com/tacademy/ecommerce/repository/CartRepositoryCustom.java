@@ -1,16 +1,11 @@
-package com.tacademy.ecommerce.service;
+package com.tacademy.ecommerce.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.tacademy.ecommerce.domain.CartProduct;
 
-public interface CartManager {
+public interface CartRepositoryCustom {
 
   Page<CartProduct> getCartProducts(Long userId, Pageable pageable);
-
-  void addProduct(Long userId, Long productId, Integer buyCount);
-
-  void deleteProduct(Long userId, Long productId);
-
 }
