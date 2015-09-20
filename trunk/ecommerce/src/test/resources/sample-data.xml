@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+<table name="t_user">
+    <column>id</column>
+    <column>name</column>
+    <column>password</column>
+    <row>
+         <value description="id">1</value>
+         <value description="name">user01</value>
+         <value description="password">$2a$10$ouU7VJi9oSIDCykxKiV7uuRjvUPcpwZk2TBV2L52DDOIvtSp79fnO</value>
+    </row>
+</table>
+</dataset>
