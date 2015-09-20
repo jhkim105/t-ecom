@@ -2,12 +2,42 @@
 <dataset>
 <table name="t_user">
     <column>id</column>
-    <column>name</column>
+    <column>username</column>
     <column>password</column>
+    <column>name</column>
     <row>
          <value description="id">1</value>
-         <value description="name">user01</value>
+         <value description="username">user01</value>
          <value description="password">$2a$10$ouU7VJi9oSIDCykxKiV7uuRjvUPcpwZk2TBV2L52DDOIvtSp79fnO</value>
+         <value description="name">유저01</value>
+    </row>
+</table>
+<table name="t_product">
+    <column>id</column>
+    <column>name</column>
+    <column>color</column>
+    <column>price</column>
+    <column>description</column>
+    <row>
+         <value description="id">1</value>
+         <value description="name">손목시계</value>
+         <value description="color">MM</value>
+         <value description="price">100</value>
+         <value description="description">손목시계 설명</value>
+    </row>
+    <row>
+         <value description="id">2</value>
+         <value description="name">iwatch</value>
+         <value description="color">CC</value>
+         <value description="price">2000</value>
+         <value description="description">iwatch 설명</value>
+    </row>
+    <row>
+         <value description="id">3</value>
+         <value description="name">장인시계</value>
+         <value description="color">BG</value>
+         <value description="price">30000</value>
+         <value description="description">장인시계설명</value>
     </row>
 </table>
 </dataset>
