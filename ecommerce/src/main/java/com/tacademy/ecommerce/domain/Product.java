@@ -58,6 +58,7 @@ public class Product extends AbstractEntity<Long> {
 
   @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
   @OrderBy("createdDate desc")
+  @JsonProperty("comments")
   private Set<ProductComment> productComments = new HashSet<ProductComment>();
 
   @JsonProperty("imageUrl")
