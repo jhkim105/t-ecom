@@ -6,11 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Transient;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tacademy.ecommerce.config.SystemPropertiesConfig;
 
 @Entity
 @Table(name = "t_product")
@@ -41,7 +43,12 @@ public class Product extends AbstractEntity<Long> {
 
   @JsonProperty("imageUrl")
   public String getImageUrl() {
-    return "";
+    return String.format("%s/product/%d/%s", System.getProperty(SystemPropertiesConfig.STORAGE_URI), this.id, this.imageFileName);
+  }
+
+  @Transient
+  public String getImageUploadPath() {
+    return String.format("%s/product/%d", System.getProperty(SystemPropertiesConfig.STORAGE_PATH), this.id);
   }
 
 }

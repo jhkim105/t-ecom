@@ -31,7 +31,7 @@
                 <c:forEach var="product" items="${page.content }" varStatus="status">
                   <tr class="odd gradeX">
                     <td class="text-center">${product.id }</td>
-                    <td class="text-center">${product.imageUrl }</td>
+                    <td class="text-center"><img src="${product.imageUrl }" width=100 height=100 /></td>
                     <td class="text-center"><a href="view?id=${product.id }">${product.name }</a></td>
                     <td class="text-center">${product.color}</td>
                     <td class="text-center">${product.price }</td>

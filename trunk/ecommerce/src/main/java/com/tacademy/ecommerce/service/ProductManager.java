@@ -11,7 +11,7 @@ public interface ProductManager {
 
   Product findOne(Long id);
 
-  void save(Product product);
+  Product save(Product product);
 
   void delete(Long id);
 

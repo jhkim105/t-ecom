@@ -10,7 +10,7 @@
 <body>
   <div id="wrapper">
     <%@ include file="/common/menu.jsp"%>
-    <form:form modelAttribute="product" method="post" id="form" enctype="multipart/form-data">
+    <form:form modelAttribute="product" method="post" id="product-form" enctype="multipart/form-data">
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
@@ -46,7 +46,7 @@
             <label>이미지</label>
           </div>
           <div class="col-md-5">
-            <input type="file" />
+            <input type="file" name="imageFile" />
           </div>
         </div>
         <div class="row top-buffer">
@@ -62,7 +62,9 @@
             <div class="pull-left">
               <button type="submit" class="btn btn-primary btn-sm">Save</button>
               <a href="/product/list" class="btn btn-default btn-sm">List</a>
-              <a href="#" class="btn btn-danger btn-sm">Delete</a>
+              <c:if test="${product.id ne null }">
+                <a href="#" class="btn btn-danger btn-sm" id="delete-btn">Delete</a>
+              </c:if>
             </div>
           </div>
         </div>
@@ -70,5 +72,44 @@
     </form:form>
   </div>
   <%@ include file="/common/scripts.jsp"%>
+
+  <script>
+      var options = {
+        url : 'save',
+        type : 'post',
+        dataType : 'json',
+        clearForm : false,
+        success : function(data) {
+          if (data.resultCode == '100') {
+            alert('Saved');
+            document.location.reload();
+          } else {
+            alert('저장실패:' + data.message);
+          }
+
+        }
+      };
+      $('#product-form').ajaxForm(options);
+
+      $('#delete-btn').on('click', function() {
+        if (confirm('정말 삭제하시겠습니까?')) {
+          $.ajax({
+            url : 'delete',
+            type : 'post',
+            data : {
+              id : '${product.id}'
+            },
+            dataType : 'json'
+          }).done(function(data) {
+            if (data.resultCode != '100') {
+              alert(data.message);
+              return false;
+            }
+            location.href = 'list';
+          });
+
+        }
+      });
+    </script>
 </body>
 </html>
