@@ -1,11 +1,11 @@
 package com.tacademy.ecommerce.api;
 
-import lombok.Setter;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 
 import com.tacademy.ecommerce.common.RequestVO;
+
+import lombok.Setter;
 
 @Setter
 public class ApiDataListRequestVO extends RequestVO {

@@ -1,11 +1,6 @@
 package com.tacademy.ecommerce.api;
 
-import java.io.Serializable;
 import java.util.List;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import org.springframework.data.domain.Page;
 
@@ -13,10 +8,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tacademy.ecommerce.common.ResponseVO;
 import com.tacademy.ecommerce.common.ResultCodes;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Getter
 @Setter
 @ToString
-public class ApiDataListResponseVO<T extends Serializable> extends ResponseVO {
+public class ApiDataListResponseVO<T> extends ResponseVO {
 
   private static final long serialVersionUID = -8702013692167568360L;
 

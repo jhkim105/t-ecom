@@ -6,10 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "t_authority")
