@@ -78,6 +78,7 @@ public class OrderManagerImpl implements OrderManager {
   }
 
   @Override
+  @Transactional
   public Order save(Order order) {
     return orderRepository.save(order);
   }

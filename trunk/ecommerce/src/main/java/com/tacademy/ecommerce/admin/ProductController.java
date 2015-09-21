@@ -1,7 +1,6 @@
 package com.tacademy.ecommerce.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tacademy.ecommerce.common.ResponseVO;
@@ -26,9 +26,6 @@ public class ProductController {
 
   @Autowired
   private ProductManager productManager;
-
-  @Autowired
-  private Environment env;
 
   @RequestMapping(value = "/list", method = RequestMethod.GET)
   public String list(Model model, Pageable pageable) {
@@ -54,7 +51,8 @@ public class ProductController {
 
   @RequestMapping(value = "/save", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseVO save(@ModelAttribute Product product, @RequestParam("imageFile") MultipartFile imageFile) {
+  public ResponseVO save(@ModelAttribute Product product, @RequestParam("imageFile") MultipartFile imageFile,
+      SessionStatus sessionStatus) {
 
     product = productManager.save(product);
 
@@ -64,6 +62,7 @@ public class ProductController {
       product.setImageFileName(imageFile.getOriginalFilename());
       productManager.save(product);
     }
+    sessionStatus.setComplete();
     return ResponseVO.ok();
   }
 
