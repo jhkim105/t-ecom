@@ -78,7 +78,7 @@
         success : function(data) {
           if (data.resultCode == '100') {
             alert('Saved');
-            document.location.reload();
+            location.href = 'list';
           } else {
             alert('저장실패:' + data.message);
           }
