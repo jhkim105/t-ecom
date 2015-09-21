@@ -7,11 +7,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,20 +20,20 @@ import lombok.ToString;
 @Table(name = "t_cart")
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = false, of = { "id" })
 @ToString(exclude = { "user" })
 public class Cart extends AbstractEntity<Long> {
 
-  private static final long serialVersionUID = 7568237900551155743L;
+	private static final long serialVersionUID = 6456906977955293959L;
 
-  @Id
-  private Long id;
+	@Id
+	private Long id;
 
-  @OneToOne(optional = false)
-  @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
-  private User user;
+	@OneToOne(optional = false)
+	@MapsId
+	@JoinColumn(name = "id")
+	private User user;
 
-  @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-  private Set<CartProduct> cartProducts = new HashSet<CartProduct>();
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<CartProduct> cartProducts = new HashSet<CartProduct>();
 
 }
