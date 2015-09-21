@@ -70,9 +70,8 @@ public class UserController {
     return ResponseVO.ok();
   }
 
-  @RequestMapping(value = "/logout", method = RequestMethod.GET)
+  @RequestMapping(value = "/logout")
   public ResponseVO logout(HttpServletRequest request) {
-
     HttpSession session = request.getSession(false);
     if (session != null)
       session.invalidate();
