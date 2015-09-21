@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tacademy.ecommerce.common.ResponseVO;
+import com.tacademy.ecommerce.domain.Role;
 import com.tacademy.ecommerce.domain.User;
 import com.tacademy.ecommerce.exception.UserNotFoundException;
 import com.tacademy.ecommerce.exception.UserPasswordNotMatchedException;
 import com.tacademy.ecommerce.exception.UsernameExistException;
+import com.tacademy.ecommerce.security.Authorities;
+import com.tacademy.ecommerce.service.RoleManager;
 import com.tacademy.ecommerce.service.UserManager;
 import com.tacademy.ecommerce.util.ParameterUtil;
 
@@ -27,6 +30,9 @@ public class UserController {
   private UserManager userManager;
 
   @Autowired
+  private RoleManager roleManager;
+
+  @Autowired
   private PasswordEncoder passwordEncoder;
 
   @RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -34,7 +40,11 @@ public class UserController {
     ParameterUtil.checkParameterEmpty(user.getUsername(), user.getPassword(), user.getName());
     checkUsernameDuplicated(user.getUsername());
     user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+    Role role = roleManager.findByName(Authorities.USER);
+    user.getRoles().add(role);
     userManager.save(user);
+
     return ResponseVO.ok();
   }
 
@@ -66,7 +76,7 @@ public class UserController {
     HttpSession session = request.getSession(false);
     if (session != null)
       session.invalidate();
-
+    SecurityContextHolder.getContext().setAuthentication(null);
     return ResponseVO.ok();
   }
 

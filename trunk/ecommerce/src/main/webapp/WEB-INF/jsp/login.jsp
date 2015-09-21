@@ -9,16 +9,16 @@
           <div class="panel-heading">
             <h3 class="panel-title">Please Sign In</h3>
           </div>
-          <div class="panel-body" action="/j_security_check" method="post">
-            <form role="form">
+          <div class="panel-body">
+            <form role="form" action="/j_security_check" method="post">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                  <input class="form-control" placeholder="User Id" name="j_username">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <input class="form-control" placeholder="Password" name="j_password" type="password">
                 </div>
-                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
               </fieldset>
             </form>
           </div>
