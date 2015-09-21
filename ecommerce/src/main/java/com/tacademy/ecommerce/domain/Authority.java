@@ -12,10 +12,10 @@ import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-@Table(name = "t_role")
+@Table(name = "t_authority")
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Role extends AbstractEntity<Long> implements GrantedAuthority {
+public class Authority extends AbstractEntity<Long> implements GrantedAuthority {
 
   private static final long serialVersionUID = 5803434725021745049L;
 
@@ -24,11 +24,6 @@ public class Role extends AbstractEntity<Long> implements GrantedAuthority {
   private Long id;
 
   @Column(length = 30)
-  private String name;
-
-  @Override
-  public String getAuthority() {
-    return this.name;
-  }
+  private String authority;
 
 }

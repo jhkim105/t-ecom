@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tacademy.ecommerce.common.ResponseVO;
-import com.tacademy.ecommerce.domain.Role;
+import com.tacademy.ecommerce.domain.Authority;
 import com.tacademy.ecommerce.domain.User;
 import com.tacademy.ecommerce.exception.UserNotFoundException;
 import com.tacademy.ecommerce.exception.UserPasswordNotMatchedException;
 import com.tacademy.ecommerce.exception.UsernameExistException;
 import com.tacademy.ecommerce.security.Authorities;
-import com.tacademy.ecommerce.service.RoleManager;
+import com.tacademy.ecommerce.service.AuthorityManager;
 import com.tacademy.ecommerce.service.UserManager;
 import com.tacademy.ecommerce.util.ParameterUtil;
 
@@ -30,7 +30,7 @@ public class UserController {
   private UserManager userManager;
 
   @Autowired
-  private RoleManager roleManager;
+  private AuthorityManager authorityManager;
 
   @Autowired
   private PasswordEncoder passwordEncoder;
@@ -41,8 +41,8 @@ public class UserController {
     checkUsernameDuplicated(user.getUsername());
     user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-    Role role = roleManager.findByName(Authorities.USER);
-    user.getRoles().add(role);
+    Authority authority = authorityManager.findByAuthority(Authorities.USER);
+    user.getAuthorities().add(authority);
     userManager.save(user);
 
     return ResponseVO.ok();
@@ -70,7 +70,7 @@ public class UserController {
     return ResponseVO.ok();
   }
 
-  @RequestMapping(value = "/logout", method = RequestMethod.POST)
+  @RequestMapping(value = "/logout", method = RequestMethod.GET)
   public ResponseVO logout(HttpServletRequest request) {
 
     HttpSession session = request.getSession(false);

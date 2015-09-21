@@ -10,7 +10,7 @@
             <h3 class="panel-title">Please Sign In</h3>
           </div>
           <div class="panel-body">
-            <form role="form" action="/j_security_check" method="post">
+            <form role="form" action="/admin/j_security_check" method="post">
               <fieldset>
                 <div class="form-group">
                   <input class="form-control" placeholder="User Id" name="j_username">
