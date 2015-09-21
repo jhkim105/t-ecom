@@ -19,8 +19,8 @@ import com.tacademy.ecommerce.domain.Product;
 import com.tacademy.ecommerce.service.ProductManager;
 import com.tacademy.ecommerce.util.FileUtil;
 
-@Controller("productsController")
-@RequestMapping("/products")
+@Controller("adminProductController")
+@RequestMapping("/admin/product")
 @SessionAttributes("product")
 public class ProductController {
 

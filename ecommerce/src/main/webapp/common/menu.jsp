@@ -9,11 +9,11 @@
   <div class="navbar-default sidebar" role="navigation" style="margin-top: 120px;">
     <div class="sidebar-nav navbar-collapse">
       <ul class="nav" id="side-menu">
-        <li><a href="/product/list"><i class="fa fa-dashboard fa-fw"></i> 상품관리</a></li>
+        <li><a href="/admin/product/list"><i class="fa fa-dashboard fa-fw"></i> 상품관리</a></li>
         <li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 주문관리<span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
-            <li><a href="/order/list">주문목록</a></li>
-            <li><a href="/order/cancel_list">주문취소목록</a></li>
+            <li><a href="/admin/order/list">주문목록</a></li>
+            <li><a href="/admin/order/cancel_list">주문취소목록</a></li>
           </ul></li>
       </ul>
     </div>

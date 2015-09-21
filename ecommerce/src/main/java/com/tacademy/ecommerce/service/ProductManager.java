@@ -15,8 +15,4 @@ public interface ProductManager {
 
   void delete(Long id);
 
-  void addComment(Long userId, Long id, String comment);
-
-  void deleteComment(Long userId, Long id, Long commentId);
-
 }
