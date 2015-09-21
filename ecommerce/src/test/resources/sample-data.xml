@@ -5,11 +5,11 @@
     <column>name</column>
     <row>
          <value description="id">1</value>
-         <value description="name">ROLE_USER</value>
+         <value description="name">USER</value>
     </row>
     <row>
          <value description="id">2</value>
-         <value description="name">ROLE_ADMIN</value>
+         <value description="name">ADMIN</value>
     </row>
 </table>
 <table name="t_user">

@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-12">
           <div class="pull-right">
-            <a href="/product/create" class="btn btn-primary btn-sm">Create</a>
+            <a href="create" class="btn btn-primary btn-sm">Create</a>
           </div>
         </div>
       </div>

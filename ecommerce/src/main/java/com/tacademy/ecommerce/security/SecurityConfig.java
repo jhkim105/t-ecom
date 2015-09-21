@@ -32,16 +32,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
       .authorizeRequests()
-        .antMatchers("/login-form", "/join/**").permitAll()
-        .antMatchers("/admin").hasAnyAuthority(Authorities.ADMIN)
+        .antMatchers("/admin/login", "/join/**", "/admin/logout").permitAll()
+        .antMatchers("/admin/**").hasAnyAuthority(Authorities.ADMIN)
+        .antMatchers("/cart/**", "/order/**").hasAnyAuthority(Authorities.USER)
         .and()
       .formLogin()
-        .loginPage("/login-form")
+        .loginPage("/admin/login")
         .usernameParameter("j_username")
         .passwordParameter("j_password")
         .loginProcessingUrl("/j_security_check")
-        .defaultSuccessUrl("/home")
-        .failureUrl("/login-form?error=true")
+        .defaultSuccessUrl("/admin/product/list")
+        .failureUrl("/admin/login?error=true")
         .and()
       .csrf().disable();
   }
