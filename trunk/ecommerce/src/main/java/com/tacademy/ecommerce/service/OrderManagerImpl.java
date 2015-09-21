@@ -34,6 +34,16 @@ public class OrderManagerImpl implements OrderManager {
   }
 
   @Override
+  public Page<Order> getOrders(Pageable pageable) {
+    return orderRepository.findByOrderByOrderDateDesc(pageable);
+  }
+
+  @Override
+  public Page<Order> getOrdersByOrderStatus(OrderStatus orderStatus, Pageable pageable) {
+    return orderRepository.findByOrderStatusOrderByOrderDateDesc(orderStatus, pageable);
+  }
+
+  @Override
   public Order findOne(Long id) {
     return orderRepository.findOne(id);
   }
@@ -65,6 +75,11 @@ public class OrderManagerImpl implements OrderManager {
       throw new RuntimeException("주문취소 권한이 없습니다.");
 
     order.setOrderStatus(OrderStatus.CANCELED);
+  }
+
+  @Override
+  public Order save(Order order) {
+    return orderRepository.save(order);
   }
 
 }

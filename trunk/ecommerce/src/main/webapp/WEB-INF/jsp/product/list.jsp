@@ -20,7 +20,8 @@
             <table class="table table-bordered table-hover table-condensed">
               <thead>
                 <tr>
-                  <th class="text-center">ID</th>
+                  <th class="text-center">번호</th>
+                  <th class="text-center">상품ID</th>
                   <th class="text-center">이미지</th>
                   <th class="text-center">상품명</th>
                   <th class="text-center">컬러</th>
@@ -30,11 +31,13 @@
               <tbody>
                 <c:forEach var="product" items="${page.content }" varStatus="status">
                   <tr class="odd gradeX">
-                    <td class="text-center">${product.id }</td>
-                    <td class="text-center"><img src="${product.imageUrl }" width=100 height=100 /></td>
-                    <td class="text-center"><a href="view?id=${product.id }">${product.name }</a></td>
-                    <td class="text-center">${product.color}</td>
-                    <td class="text-center">${product.price }</td>
+                    <td class="text-center" style="vertical-align: middle;">${page.totalElements - (page.number * page.size + status.count - 1)}</td>
+                    <td class="text-center" style="vertical-align: middle;">${product.id }</td>
+                    <td class="text-center" style="vertical-align: middle;"><img src="${product.imageUrl }"
+                      style="padding: 5px; width: 100px; margin-top: 10px; border: 1px solid #dddddd;" /></td>
+                    <td class="text-center" style="vertical-align: middle;"><a href="view?id=${product.id }">${product.name }</a></td>
+                    <td class="text-center" style="vertical-align: middle;">${product.color}</td>
+                    <td class="text-center" style="vertical-align: middle;">${product.price }</td>
                   </tr>
                 </c:forEach>
 

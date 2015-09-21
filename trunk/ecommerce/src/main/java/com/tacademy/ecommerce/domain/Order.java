@@ -2,7 +2,9 @@ package com.tacademy.ecommerce.domain;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +17,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -74,6 +80,17 @@ public class Order extends AbstractEntity<Long> {
   @JsonProperty("orderDate")
   public Long getOrderDateTimestamp() {
     return this.orderDate.getTime();
+  }
+
+  @Transient
+  public String getOrderProductNames() {
+    if (CollectionUtils.isEmpty(this.orderProducts))
+      return "";
+    List<String> names = this.orderProducts.stream().map(op -> {
+      return op.getProduct().getName();
+    }).collect(Collectors.toList());
+
+    return StringUtils.join(names, ",");
   }
 
 }

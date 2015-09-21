@@ -2,11 +2,6 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <html>
 <%@ include file="/common/header.jsp"%>
-<style>
-.top-buffer {
-	margin-top: 20px;
-}
-</style>
 <body>
   <div id="wrapper">
     <%@ include file="/common/menu.jsp"%>
@@ -46,6 +41,7 @@
             <label>이미지</label>
           </div>
           <div class="col-md-5">
+            <img src="${product.imageUrl }" style="padding: 5px; width: 100px; margin-top: 10px; border: 1px solid #dddddd;"> <br>
             <input type="file" name="imageFile" />
           </div>
         </div>
@@ -61,7 +57,7 @@
           <div class="col-md-12">
             <div class="pull-left">
               <button type="submit" class="btn btn-primary btn-sm">Save</button>
-              <a href="/product/list" class="btn btn-default btn-sm">List</a>
+              <a href="list" class="btn btn-default btn-sm">List</a>
               <c:if test="${product.id ne null }">
                 <a href="#" class="btn btn-danger btn-sm" id="delete-btn">Delete</a>
               </c:if>

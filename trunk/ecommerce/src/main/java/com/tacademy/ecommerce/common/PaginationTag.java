@@ -67,7 +67,7 @@ public class PaginationTag extends TagSupport {
     if (currentPage == 1) {
       firstButton = "<li class=\"paginate_button disabled\"><a href=\"#\">&lt;&lt;</a></li>";
     } else {
-      firstButton = "<li class=\"paginate_button\"><a href=\"javascript:paginationTag.goPage(1)\">&lt;&lt;</a></li>";
+      firstButton = "<li class=\"paginate_button\"><a href=\"javascript:paginationTag.goPage(0)\">&lt;&lt;</a></li>";
     }
 
     // prev
@@ -91,7 +91,7 @@ public class PaginationTag extends TagSupport {
       lastButton = "<li class=\"paginate_button disabled\"><a href=\"#\">&gt;&gt;</a></li>";
     } else {
       lastButton = "<li class=\"paginate_button\"><a href=\"javascript:paginationTag.goPage(%d)\">&gt;&gt;</a></li>";
-      lastButton = String.format(lastButton, totalPages);
+      lastButton = String.format(lastButton, totalPages - 1);
     }
 
     sb.append("<ul class=\"pagination\">").append(firstButton).append(prevButton);
@@ -101,8 +101,8 @@ public class PaginationTag extends TagSupport {
       if (i == currentPage) {
         sb.append("<li class=\"paginate_button active\"><a href=\"#\">").append(i).append("</a></li>");
       } else {
-        sb.append("<li class=\"paginate_button\"><a href=\"javascript:paginationTag.goPage(").append(i).append(")\">").append(i)
-            .append("</a></li>");
+        sb.append("<li class=\"paginate_button\"><a href=\"javascript:paginationTag.goPage(").append(i - 1).append(")\">")
+            .append(i).append("</a></li>");
       }
     }
 
