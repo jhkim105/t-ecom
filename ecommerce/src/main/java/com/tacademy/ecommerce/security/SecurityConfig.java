@@ -63,8 +63,10 @@ public class SecurityConfig {
           .antMatchers("/join", "/login", "/product/**").permitAll()
           .antMatchers("/cart/**", "/order/**").hasAnyAuthority(Authorities.USER)
           .and()
-          .httpBasic()
-          .and().csrf().disable();
+          .httpBasic().and()
+          .logout()
+          .logoutUrl("/j_security_logout").and()
+          .csrf().disable();
     }
   }
 
