@@ -13,9 +13,9 @@ import com.tacademy.ecommerce.common.BaseController;
 @Controller
 public class LoginController extends BaseController {
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
   public String index() {
-    return "redirect:/admin/login";
+    return "redirect:/admin/product/list";
   }
 
   @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
