@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.context.ServletContextAware;
 
 import com.tacademy.ecommerce.domain.User;
-import com.tacademy.ecommerce.security.LoginUserDetails;
 
 public class BaseController implements ServletContextAware {
 

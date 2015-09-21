@@ -2,6 +2,7 @@ package com.tacademy.ecommerce.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tacademy.ecommerce.domain.User;
 import com.tacademy.ecommerce.repository.UserRepository;
@@ -18,6 +19,7 @@ public class UserManagerImpl implements UserManager {
   }
 
   @Override
+  @Transactional
   public User save(User user) {
     return userRepository.save(user);
   }

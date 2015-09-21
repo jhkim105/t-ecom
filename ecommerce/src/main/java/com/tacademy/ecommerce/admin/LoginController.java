@@ -13,6 +13,11 @@ import com.tacademy.ecommerce.common.BaseController;
 @Controller
 public class LoginController extends BaseController {
 
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public String index() {
+    return "redirect:/admin/login";
+  }
+
   @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
   public String login() {
     return "login";
@@ -23,13 +28,8 @@ public class LoginController extends BaseController {
     HttpSession session = request.getSession(false);
     if (session != null)
       session.invalidate();
-    SecurityContextHolder.getContext().setAuthentication(null);
+    SecurityContextHolder.clearContext();
     return "login";
-  }
-
-  @RequestMapping(value = "/", method = RequestMethod.GET)
-  public String index() {
-    return "redirect:/admin/login";
   }
 
 }

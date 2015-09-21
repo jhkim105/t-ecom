@@ -75,7 +75,7 @@ public class UserController {
     HttpSession session = request.getSession(false);
     if (session != null)
       session.invalidate();
-    SecurityContextHolder.getContext().setAuthentication(null);
+    SecurityContextHolder.clearContext();
     return ResponseVO.ok();
   }
 

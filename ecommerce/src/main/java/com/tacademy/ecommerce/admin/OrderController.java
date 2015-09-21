@@ -3,7 +3,6 @@ package com.tacademy.ecommerce.admin;
 import lombok.extern.apachecommons.CommonsLog;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.tacademy.ecommerce.common.ResponseVO;
 import com.tacademy.ecommerce.domain.Order;
@@ -23,19 +23,13 @@ import com.tacademy.ecommerce.service.OrderManager;
 @Controller("adminOrderController")
 @RequestMapping("/admin/order")
 @SessionAttributes("order")
-@CommonsLog
 public class OrderController {
 
   @Autowired
   private OrderManager orderManager;
 
-  @Autowired
-  private Environment env;
-
   @RequestMapping(value = "/list", method = RequestMethod.GET)
   public String list(Model model, Pageable pageable) {
-
-    log.debug("pageNumber:" + pageable.getPageNumber() + ",pageSize:" + pageable.getPageSize());
 
     Page<Order> page = orderManager.getOrders(pageable);
     model.addAttribute("page", page);
@@ -60,8 +54,9 @@ public class OrderController {
 
   @RequestMapping(value = "/save", method = RequestMethod.POST)
   @ResponseBody
-  public ResponseVO save(@ModelAttribute Order order) {
+  public ResponseVO save(@ModelAttribute Order order, SessionStatus sessionStatus) {
     orderManager.save(order);
+    sessionStatus.setComplete();
     return ResponseVO.ok();
   }
 
