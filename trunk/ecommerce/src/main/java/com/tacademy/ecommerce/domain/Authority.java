@@ -8,13 +8,15 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "t_authority")
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
+@ToString
 public class Authority extends AbstractEntity<Long> implements GrantedAuthority {
 
   private static final long serialVersionUID = 5803434725021745049L;
