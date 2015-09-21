@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-<table name="t_role">
+<table name="t_authority">
     <column>id</column>
-    <column>name</column>
+    <column>authority</column>
     <row>
          <value description="id">1</value>
-         <value description="name">USER</value>
+         <value description="authority">USER</value>
     </row>
     <row>
          <value description="id">2</value>
-         <value description="name">ADMIN</value>
+         <value description="authority">ADMIN</value>
     </row>
 </table>
 <table name="t_user">
@@ -30,16 +30,16 @@
          <value description="name">어드민01</value>
     </row>
 </table>
-<table name="t_user_role">
+<table name="t_user_authority">
     <column>user_id</column>
-    <column>role_id</column>
+    <column>authority_id</column>
     <row>
          <value description="user_id">1</value>
-         <value description="role_id">1</value>
+         <value description="authority_id">1</value>
     </row>
     <row>
          <value description="user_id">2</value>
-         <value description="role_id">2</value>
+         <value description="authority_id">2</value>
     </row>
 </table>
 <table name="t_product">

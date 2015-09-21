@@ -40,8 +40,8 @@ public class User extends AbstractEntity<Long> {
   private Long id;
 
   @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(name = "t_user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private Set<Role> roles = new HashSet<Role>();
+  @JoinTable(name = "t_user_authority", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = @JoinColumn(name = "authority_id"))
+  private Set<Authority> authorities = new HashSet<Authority>();
 
   @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
   private Cart cart;
@@ -67,7 +67,7 @@ public class User extends AbstractEntity<Long> {
 
   public Set<GrantedAuthority> getAuthorities() {
     Set<GrantedAuthority> authorities = new LinkedHashSet<GrantedAuthority>();
-    this.roles.forEach(role -> authorities.add(role));
+    this.authorities.forEach(authority -> authorities.add(authority));
     return authorities;
   }
 
