@@ -34,4 +34,9 @@ public class ProductRepositoryTest {
 		assertThat(products.size(), is(5));
 	}
 
+	@Test
+	public void testCountAll() {
+		repository.countAll();
+	}
+
 }
