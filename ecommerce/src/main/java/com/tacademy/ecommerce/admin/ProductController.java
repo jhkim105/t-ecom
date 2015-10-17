@@ -36,7 +36,7 @@ public class ProductController {
   }
 
   @RequestMapping(value = "/create", method = RequestMethod.GET)
-  public String create(Model model) {
+  public String createform(Model model) {
     Product product = new Product();
     model.addAttribute("product", product);
     return "product/form";

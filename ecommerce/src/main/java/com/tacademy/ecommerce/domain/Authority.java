@@ -17,7 +17,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Authority extends AbstractEntity<Long> implements GrantedAuthority {
+public class Authority extends AbstractEntity<Long>implements GrantedAuthority {
 
   private static final long serialVersionUID = 5803434725021745049L;
 

@@ -16,7 +16,7 @@ import com.tacademy.ecommerce.EcommerceApplication;
 @SpringApplicationConfiguration(classes = EcommerceApplication.class)
 @WebAppConfiguration
 @CommonsLog
-public class UserManagerImplTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class UserManagerTest extends AbstractTransactionalJUnit4SpringContextTests {
 
   @Autowired
   private UserManager userManager;

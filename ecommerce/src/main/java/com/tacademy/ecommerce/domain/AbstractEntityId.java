@@ -9,12 +9,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude
 public abstract class AbstractEntityId implements Serializable {
 
-	private static final long serialVersionUID = -2053668818011263946L;
+  private static final long serialVersionUID = -2053668818011263946L;
 
-    public abstract String toString();
+  public abstract String toString();
 
-    public abstract boolean equals(Object o);
+  public abstract boolean equals(Object o);
 
-    public abstract int hashCode();
+  public abstract int hashCode();
 
 }

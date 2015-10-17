@@ -7,29 +7,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tacademy.ecommerce.common.BaseController;
+import com.tacademy.ecommerce.common.DataListRequestVO;
+import com.tacademy.ecommerce.common.DataListResponseVO;
+import com.tacademy.ecommerce.common.DataResponseVO;
 import com.tacademy.ecommerce.domain.Product;
 import com.tacademy.ecommerce.service.ProductManager;
 
 @RestController
 @RequestMapping("/product")
-public class ProductController extends BaseController {
+public class ProductController {
 
   @Autowired
   private ProductManager productManager;
 
   @RequestMapping(method = RequestMethod.GET)
-  public ApiDataListResponseVO<Product> list(ApiDataListRequestVO requestVO) {
+  public DataListResponseVO<Product> list(DataListRequestVO requestVO) {
 
     Page<Product> page = productManager.findProducts(requestVO.getPageable());
-    return new ApiDataListResponseVO<Product>(page);
+    return new DataListResponseVO<Product>(page);
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ApiDataResponseVO<Product> detail(@PathVariable Long id) {
+  public DataResponseVO<Product> detail(@PathVariable Long id) {
 
     Product product = productManager.findOne(id);
-    return new ApiDataResponseVO<Product>(product);
+    return new DataResponseVO<Product>(product);
   }
 
 }

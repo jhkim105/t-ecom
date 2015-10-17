@@ -26,45 +26,45 @@ import lombok.ToString;
 @NoArgsConstructor
 public class OrderProduct extends AbstractEntity<OrderProduct.Id> {
 
-	private static final long serialVersionUID = 7206487735021996949L;
+  private static final long serialVersionUID = 7206487735021996949L;
 
-	@EmbeddedId
-	private Id id = new Id();
+  @EmbeddedId
+  private Id id = new Id();
 
-	@ManyToOne
-	@MapsId("orderId")
-	private Order order;
+  @ManyToOne
+  @MapsId("orderId")
+  private Order order;
 
-	@ManyToOne
-	@MapsId("productId")
-	@JsonProperty
-	@JsonUnwrapped
-	private Product product;
+  @ManyToOne
+  @MapsId("productId")
+  @JsonProperty
+  @JsonUnwrapped
+  private Product product;
 
-	@Column(name = "order_count")
-	@JsonProperty
-	private Integer orderCount;
+  @Column(name = "order_count")
+  @JsonProperty
+  private Integer orderCount;
 
-	public OrderProduct(Order order, Product product) {
-		this.id.orderId = order.getId();
-		this.id.productId = product.getId();
-		this.order = order;
-		this.product = product;
-	}
+  public OrderProduct(Order order, Product product) {
+    this.id.orderId = order.getId();
+    this.id.productId = product.getId();
+    this.order = order;
+    this.product = product;
+  }
 
-	@Embeddable
-	@Data
-	@EqualsAndHashCode(callSuper = false, of = { "orderId", "productId" })
-	public static class Id extends AbstractEntityId {
+  @Embeddable
+  @Data
+  @EqualsAndHashCode(callSuper = false, of = { "orderId", "productId" })
+  public static class Id extends AbstractEntityId {
 
-		private static final long serialVersionUID = 226636815858337409L;
+    private static final long serialVersionUID = 226636815858337409L;
 
-		@Column(name = "order_id")
-		private Long orderId;
+    @Column(name = "order_id")
+    private Long orderId;
 
-		@Column(name = "product_id")
-		private Long productId;
+    @Column(name = "product_id")
+    private Long productId;
 
-	}
+  }
 
 }

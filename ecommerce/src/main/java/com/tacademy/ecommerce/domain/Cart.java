@@ -23,17 +23,17 @@ import lombok.ToString;
 @ToString(exclude = { "user" })
 public class Cart extends AbstractEntity<Long> {
 
-	private static final long serialVersionUID = 6456906977955293959L;
+  private static final long serialVersionUID = 6456906977955293959L;
 
-	@Id
-	private Long id;
+  @Id
+  private Long id;
 
-	@OneToOne(optional = false)
-	@MapsId
-	@JoinColumn(name = "id")
-	private User user;
+  @OneToOne(optional = false)
+  @MapsId
+  @JoinColumn(name = "id")
+  private User user;
 
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-	private Set<CartProduct> cartProducts = new HashSet<CartProduct>();
+  @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Set<CartProduct> cartProducts = new HashSet<CartProduct>();
 
 }

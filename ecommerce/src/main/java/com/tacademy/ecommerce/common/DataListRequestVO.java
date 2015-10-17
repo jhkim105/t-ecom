@@ -1,14 +1,12 @@
-package com.tacademy.ecommerce.api;
+package com.tacademy.ecommerce.common;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.querydsl.QPageRequest;
 
-import com.tacademy.ecommerce.common.RequestVO;
-
 import lombok.Setter;
 
 @Setter
-public class ApiDataListRequestVO extends RequestVO {
+public class DataListRequestVO extends RequestVO {
 
   private static final long serialVersionUID = -6720717604752992020L;
 

@@ -2,17 +2,10 @@ package com.tacademy.ecommerce.common;
 
 import java.io.Serializable;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@Getter
-@Setter
-@ToString
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonInclude(value = Include.ALWAYS)
 public class RequestVO implements Serializable {

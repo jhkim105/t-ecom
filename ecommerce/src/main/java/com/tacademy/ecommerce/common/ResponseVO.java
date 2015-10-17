@@ -2,14 +2,13 @@ package com.tacademy.ecommerce.common;
 
 import java.io.Serializable;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -20,10 +19,8 @@ public class ResponseVO implements Serializable {
 
   private static final long serialVersionUID = -9136245193906832320L;
 
-  @JsonProperty
   private String resultCode;
 
-  @JsonProperty
   private String message;
 
   public ResponseVO(String resultCode) {

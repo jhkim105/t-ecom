@@ -19,7 +19,6 @@ import com.tacademy.ecommerce.exception.UserNotFoundException;
 import com.tacademy.ecommerce.exception.UserPasswordNotMatchedException;
 import com.tacademy.ecommerce.exception.UsernameExistException;
 import com.tacademy.ecommerce.security.Authorities;
-import com.tacademy.ecommerce.service.AuthorityManager;
 import com.tacademy.ecommerce.service.UserManager;
 import com.tacademy.ecommerce.util.ParameterUtil;
 
@@ -30,9 +29,6 @@ public class UserController {
   private UserManager userManager;
 
   @Autowired
-  private AuthorityManager authorityManager;
-
-  @Autowired
   private PasswordEncoder passwordEncoder;
 
   @RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -41,7 +37,7 @@ public class UserController {
     checkUsernameDuplicated(user.getUsername());
     user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-    Authority authority = authorityManager.findByAuthority(Authorities.USER);
+    Authority authority = userManager.findByAuthority(Authorities.USER);
     user.getAuthorities().add(authority);
     userManager.save(user);
 
