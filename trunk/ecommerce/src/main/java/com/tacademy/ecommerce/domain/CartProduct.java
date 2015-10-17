@@ -26,52 +26,52 @@ import lombok.ToString;
 @NoArgsConstructor
 public class CartProduct extends AbstractEntity<CartProduct.Id> {
 
-	private static final long serialVersionUID = 2625074238972932078L;
+  private static final long serialVersionUID = 2625074238972932078L;
 
-	@EmbeddedId
-	private Id id = new Id();
+  @EmbeddedId
+  private Id id = new Id();
 
-	@ManyToOne
-	@MapsId("cartId")
-	private Cart cart;
+  @ManyToOne
+  @MapsId("cartId")
+  private Cart cart;
 
-	@ManyToOne
-	@MapsId("productId")
-	@JsonProperty
-	@JsonUnwrapped
-	private Product product;
+  @ManyToOne
+  @MapsId("productId")
+  @JsonProperty
+  @JsonUnwrapped
+  private Product product;
 
-	@Column(name = "buy_count")
-	@JsonProperty
-	private Integer buyCount;
+  @Column(name = "buy_count")
+  @JsonProperty
+  private Integer buyCount;
 
-	public CartProduct(Cart cart, Product product) {
-		this.id.cartId = cart.getId();
-		this.id.productId = product.getId();
-		this.cart = cart;
-		this.product = product;
-	}
+  public CartProduct(Cart cart, Product product) {
+    this.id.cartId = cart.getId();
+    this.id.productId = product.getId();
+    this.cart = cart;
+    this.product = product;
+  }
 
-	@JsonProperty("createdDate")
-	public Long getCreatedTimestamp() {
-		if (this.createdDate == null)
-			return null;
-		return this.createdDate.getTime();
-	}
+  @JsonProperty("createdDate")
+  public Long getCreatedTimestamp() {
+    if (this.createdDate == null)
+      return null;
+    return this.createdDate.getTime();
+  }
 
-	@Embeddable
-	@Data
-	@EqualsAndHashCode(callSuper = false, of = { "cartId", "productId" })
-	public static class Id extends AbstractEntityId {
+  @Embeddable
+  @Data
+  @EqualsAndHashCode(callSuper = false, of = { "cartId", "productId" })
+  public static class Id extends AbstractEntityId {
 
-		private static final long serialVersionUID = 340765999204142798L;
+    private static final long serialVersionUID = 340765999204142798L;
 
-		@Column(name = "cart_id")
-		private Long cartId;
+    @Column(name = "cart_id")
+    private Long cartId;
 
-		@Column(name = "product_id")
-		private Long productId;
+    @Column(name = "product_id")
+    private Long productId;
 
-	}
+  }
 
 }

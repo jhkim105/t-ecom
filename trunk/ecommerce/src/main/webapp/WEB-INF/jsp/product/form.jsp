@@ -41,9 +41,12 @@
             <label>이미지</label>
           </div>
           <div class="col-md-5">
+          <c:if test="${not empty product.imageUrl }">
             <img src="${product.imageUrl }" style="padding: 5px; width: 100px; margin-top: 10px; border: 1px solid #dddddd;"> <br>
+          </c:if>
             <input type="file" name="imageFile" />
           </div>
+
         </div>
         <div class="row top-buffer">
           <div class="col-md-1">

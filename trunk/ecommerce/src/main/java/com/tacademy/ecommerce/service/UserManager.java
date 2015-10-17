@@ -1,13 +1,40 @@
 package com.tacademy.ecommerce.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.tacademy.ecommerce.domain.Authority;
 import com.tacademy.ecommerce.domain.User;
+import com.tacademy.ecommerce.repository.AuthorityRepository;
+import com.tacademy.ecommerce.repository.UserRepository;
 
-public interface UserManager {
+@Service
+public class UserManager {
 
-  boolean existUserByUsername(String username);
+  @Autowired
+  private UserRepository userRepository;
 
-  User save(User user);
+  @Autowired
+  private AuthorityRepository authorityRepository;
 
-  User findByUsername(String username);
+  public boolean existUserByUsername(String username) {
+    return findByUsername(username) != null;
+  }
+
+  @Transactional
+  public User save(User user) {
+    return userRepository.save(user);
+  }
+
+  public User findByUsername(String username) {
+    User user = userRepository.findByUsername(username);
+    return user;
+  }
+
+  public Authority findByAuthority(String authority) {
+    return authorityRepository.findByAuthority(authority);
+  }
+
 
 }

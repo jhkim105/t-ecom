@@ -3,10 +3,8 @@ package com.tacademy.ecommerce.api;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.tacademy.ecommerce.common.RequestVO;
 import com.tacademy.ecommerce.domain.Order;
 import com.tacademy.ecommerce.domain.PayMethod;
 
@@ -21,9 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonInclude(value = Include.ALWAYS)
-public class OrderRequestVO implements Serializable {
+public class OrderRequestVO extends RequestVO {
 
   private static final long serialVersionUID = 2969157406177659178L;
 

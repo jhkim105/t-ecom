@@ -23,26 +23,26 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractEntity<K extends Serializable> implements Serializable {
 
-	private static final long serialVersionUID = 9222612730793852248L;
+  private static final long serialVersionUID = 9222612730793852248L;
 
-	@Column(name = "created_date", insertable = true, updatable = false)
-	@CreatedDate
-	protected Date createdDate;
+  @Column(name = "created_date", insertable = true, updatable = false)
+  @CreatedDate
+  protected Date createdDate;
 
-	@Column(name = "created_by", insertable = true, updatable = false)
-	@CreatedBy
-	protected Long createdBy;
+  @Column(name = "created_by", insertable = true, updatable = false)
+  @CreatedBy
+  protected Long createdBy;
 
-	@Column(name = "updated_date", insertable = true, updatable = true)
-	@LastModifiedDate
-	protected Date updatedDate;
+  @Column(name = "updated_date", insertable = true, updatable = true)
+  @LastModifiedDate
+  protected Date updatedDate;
 
-	@Column(name = "updated_by", insertable = true, updatable = true)
-	@LastModifiedBy
-	protected Long updatedBy;
+  @Column(name = "updated_by", insertable = true, updatable = true)
+  @LastModifiedBy
+  protected Long updatedBy;
 
-	public abstract String toString();
+  public abstract String toString();
 
-	public abstract K getId();
+  public abstract K getId();
 
 }

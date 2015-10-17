@@ -32,9 +32,9 @@
                 <c:forEach var="product" items="${page.content }" varStatus="status">
                   <tr class="odd gradeX">
                     <td class="text-center" style="vertical-align: middle;">${page.totalElements - (page.number * page.size + status.count - 1)}</td>
-                    <td class="text-center" style="vertical-align: middle;">${product.id }</td>
-                    <td class="text-center" style="vertical-align: middle;"><img src="${product.imageUrl }"
-                      style="padding: 5px; width: 100px; margin-top: 10px; border: 1px solid #dddddd;" /></td>
+                    <td class="text-center" style="vertical-align: middle;"><a href="view?id=${product.id }">${product.id }</a></td>
+                    <td class="text-center" style="vertical-align: middle;"><a href="view?id=${product.id }"><img src="${product.imageUrl }"
+                      style="padding: 5px; width: 100px; margin-top: 10px; border: 1px solid #dddddd;" /></a></td>
                     <td class="text-center" style="vertical-align: middle;"><a href="view?id=${product.id }">${product.name }</a></td>
                     <td class="text-center" style="vertical-align: middle;">${product.color}</td>
                     <td class="text-center" style="vertical-align: middle;">${product.price }</td>
