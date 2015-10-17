@@ -85,4 +85,9 @@ public class ProductRepositoryJdbc implements ProductRepository {
 		// INSERT SQL문을 자동으로 생성
 		jdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("product").usingGeneratedKeyColumns("id");
 	}
+
+	@Override
+	public long countAll() {
+		return jdbcTemplate.queryForObject("SELECT count(*) FROM product", Long.class);
+	}
 }

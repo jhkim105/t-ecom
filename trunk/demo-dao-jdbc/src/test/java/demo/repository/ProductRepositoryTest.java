@@ -36,7 +36,8 @@ public class ProductRepositoryTest {
 
 	@Test
 	public void testCountAll() {
-		repository.countAll();
+		long count = repository.countAll();
+		assertThat(count, is(5));
 	}
 
 }
