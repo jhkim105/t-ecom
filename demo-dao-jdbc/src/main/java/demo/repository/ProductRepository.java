@@ -13,4 +13,6 @@ public interface ProductRepository {
 	Product save(Product product);
 
 	void delete(Long id);
+
+	long countAll();
 }
