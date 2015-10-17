@@ -9,7 +9,6 @@
 	<packaging>war</packaging>
 
 	<name>ecommerce-3</name>
-	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
