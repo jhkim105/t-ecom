@@ -156,6 +156,7 @@
 				<configuration>
 					<envers>true</envers>
 					<format>true</format>
+                    <hibernateNamingStrategy>org.hibernate.cfg.ImprovedNamingStrategy</hibernateNamingStrategy>
 					<hibernateProperties>${project.build.directory}/test-classes/hibernate.properties</hibernateProperties>
 				</configuration>
 				<dependencies>
